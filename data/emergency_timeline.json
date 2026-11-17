@@ -1,0 +1,68 @@
+[
+  {
+    "event_id": "EVT-5B002263F039",
+    "incident_id": "INC-20261106012036-0290",
+    "timestamp": "2026-11-05T19:51:28+00:00",
+    "user_id": "demo-radha",
+    "user_name": "Radha Raghav",
+    "previous_status": "ESCALATED_CARETAKER_2",
+    "new_status": "ACKNOWLEDGED",
+    "action": "ACCEPTED",
+    "remarks": "Secondary Backup Caregiver (Radha Raghav) accepted and is attending to the resident."
+  },
+  {
+    "event_id": "EVT-AF6751142380",
+    "incident_id": "SOS-USER-004612",
+    "timestamp": "2026-11-05T19:43:24+00:00",
+    "user_id": "demo-radha",
+    "user_name": "Radha Raghav",
+    "previous_status": "ESCALATED_CARETAKER_2",
+    "new_status": "ACKNOWLEDGED",
+    "action": "ACCEPTED",
+    "remarks": "Secondary Backup Caregiver (Radha Raghav) accepted and is attending to the resident."
+  },
+  {
+    "event_id": "EVT-2E0A14769458",
+    "incident_id": "INC-20261105232658-3289",
+    "timestamp": "2026-11-05T17:57:56+00:00",
+    "user_id": "demo-radha",
+    "user_name": "Radha Raghav",
+    "previous_status": "ESCALATED_CARETAKER_2",
+    "new_status": "ACKNOWLEDGED",
+    "action": "ACCEPTED",
+    "remarks": "Secondary Backup Caregiver (Radha Raghav) accepted and is attending to the resident."
+  },
+  {
+    "event_id": "EVT-D430E4848C62",
+    "incident_id": "INC-20261105030602-317A",
+    "timestamp": "2026-11-04T21:37:01+00:00",
+    "user_id": "demo-radha",
+    "user_name": "Radha Raghav",
+    "previous_status": "ESCALATED_CARETAKER_2",
+    "new_status": "ESCALATED_CARETAKER_2",
+    "action": "UNABLE_TO_ATTEND",
+    "remarks": "Secondary caretaker is unable to attend; forwarding to administrator."
+  },
+  {
+    "event_id": "EVT-C15878D8C267",
+    "incident_id": "INC-20261105030428-43FF",
+    "timestamp": "2026-11-04T21:35:17+00:00",
+    "user_id": "demo-radha",
+    "user_name": "Radha Raghav",
+    "previous_status": "ESCALATED_CARETAKER_2",
+    "new_status": "ACKNOWLEDGED",
+    "action": "ACCEPTED",
+    "remarks": "Secondary Caretaker (Radha Raghav) accepted and is attending to the resident."
+  },
+  {
+    "event_id": "EVT-D6857978D19F",
+    "incident_id": "INC-20261105030010-FDBB",
+    "timestamp": "2026-11-04T21:31:02+00:00",
+    "user_id": "demo-radha",
+    "user_name": "Radha Raghav",
+    "previous_status": "ESCALATED_CARETAKER_2",
+    "new_status": "ESCALATED_CARETAKER_2",
+    "action": "UNABLE_TO_ATTEND",
+    "remarks": "Secondary caretaker is unable to attend; forwarding to administrator."
+  }
+]

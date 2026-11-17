@@ -1,0 +1,42 @@
+[
+  {
+    "user_id": "demo-resident",
+    "username": "user",
+    "display_name": "Elderly Resident / Patient",
+    "role": "user",
+    "email": "resident@fallguard.local",
+    "password_hash": "pbkdf2_sha256$310000$jgE-OtjBUv0GeJ4Ng1H3XA$RulX2PSdkot12F4LXP1bsUHMtZHHiw9LLfECiJIVe9E",
+    "is_active": true,
+    "created_at": "2026-11-04T20:34:15Z"
+  },
+  {
+    "user_id": "demo-radha",
+    "username": "radha",
+    "display_name": "Radha Raghav",
+    "role": "caretaker_2",
+    "email": "radha.raghav@fallguard.local",
+    "password_hash": "pbkdf2_sha256$310000$t7yYrVZTKhs42o0Be737gg$eMtkQS2MmZ2795O0ET0QeAkvxmuABszSfyZTFWk0rp0",
+    "is_active": true,
+    "created_at": "2026-11-04T20:34:15Z"
+  },
+  {
+    "user_id": "demo-mohini",
+    "username": "mohini",
+    "display_name": "Mohini Ravat",
+    "role": "caretaker_1",
+    "email": "mohini.ravat@fallguard.local",
+    "password_hash": "pbkdf2_sha256$310000$-ljQ5y88Guizu1ZptHi9kA$s9NieZttWwt_I3ZLhlaV4OQdcxzhZ-3w67mOCJhARxU",
+    "is_active": true,
+    "created_at": "2026-11-04T20:34:15Z"
+  },
+  {
+    "user_id": "demo-admin",
+    "username": "admin",
+    "display_name": "System Administrator",
+    "role": "admin",
+    "email": "admin@fallguard.local",
+    "password_hash": "pbkdf2_sha256$310000$3e-BL0cJQr-ukQsfe0MwEA$fIXM4mQrPP2-X5fbDfA8Xex-MIYsggwiYim1Kdi3aQk",
+    "is_active": true,
+    "created_at": "2026-11-04T20:34:15Z"
+  }
+]

@@ -1,0 +1,24 @@
+[
+  {
+    "name": "Mohini Ravat",
+    "email": "mohini.ravat@fallguard.local",
+    "role": "Primary Caretaker (Caretaker 1)",
+    "phone": "+91 98765 43210",
+    "is_active": true,
+    "is_available": true,
+    "priority": 1,
+    "username": "mohini",
+    "preferred_method": "EMAIL"
+  },
+  {
+    "name": "Radha Raghav",
+    "email": "radha.raghav@fallguard.local",
+    "role": "Secondary Caretaker (Caretaker 2)",
+    "phone": "+91 98123 45678",
+    "is_active": true,
+    "is_available": true,
+    "priority": 2,
+    "username": "radha",
+    "preferred_method": "EMAIL"
+  }
+]

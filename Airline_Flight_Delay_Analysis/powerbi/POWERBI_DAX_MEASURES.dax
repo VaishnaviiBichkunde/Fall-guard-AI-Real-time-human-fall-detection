@@ -1,0 +1,148 @@
+// ====================================================================
+// AIRLINE FLIGHT DELAY ANALYSIS - POWER BI DAX MEASURES LIBRARY
+// Author: Data Analytics Portfolio Project
+// Model Type: Star Schema
+// ====================================================================
+
+// --------------------------------------------------------------------
+// 1. BASE VOLUME MEASURES
+// --------------------------------------------------------------------
+
+Total Flights = 
+COUNTROWS('fact_flights')
+
+Operated Flights = 
+CALCULATE(
+    COUNTROWS('fact_flights'),
+    'fact_flights'[IsCancelled] = 0
+)
+
+Delayed Flights = 
+CALCULATE(
+    COUNTROWS('fact_flights'),
+    'fact_flights'[IsDelayed] = 1,
+    'fact_flights'[IsCancelled] = 0
+)
+
+On Time Flights = 
+[Operated Flights] - [Delayed Flights]
+
+Cancelled Flights = 
+CALCULATE(
+    COUNTROWS('fact_flights'),
+    'fact_flights'[IsCancelled] = 1
+)
+
+Diverted Flights = 
+CALCULATE(
+    COUNTROWS('fact_flights'),
+    'fact_flights'[IsDiverted] = 1
+)
+
+
+// --------------------------------------------------------------------
+// 2. KEY PERFORMANCE INDICATOR (KPI) % MEASURES
+// --------------------------------------------------------------------
+
+On-Time Performance Rate (OTP %) = 
+DIVIDE([On Time Flights], [Total Flights], 0)
+
+Delay Rate % = 
+DIVIDE([Delayed Flights], [Total Flights], 0)
+
+Cancellation Rate % = 
+DIVIDE([Cancelled Flights], [Total Flights], 0)
+
+Target OTP % = 
+0.80 -- Benchmark target 80.0%
+
+
+// --------------------------------------------------------------------
+// 3. DURATION & FINANCIAL COST MEASURES
+// --------------------------------------------------------------------
+
+Total Arrival Delay Mins = 
+SUM('fact_flights'[ArrDelayMinutes])
+
+Average Arrival Delay Mins = 
+AVERAGE('fact_flights'[ArrDelayMinutes])
+
+Avg Delay Duration when Delayed = 
+CALCULATE(
+    AVERAGE('fact_flights'[ArrDelayMinutes]),
+    'fact_flights'[IsDelayed] = 1
+)
+
+Total Financial Loss USD = 
+SUM('fact_flights'[DelayCostUSD])
+
+Total Carrier Delay Mins = 
+SUM('fact_flights'[CarrierDelayMins])
+
+Total Weather Delay Mins = 
+SUM('fact_flights'[WeatherDelayMins])
+
+Total NAS Delay Mins = 
+SUM('fact_flights'[NASDelayMins])
+
+Total Late Aircraft Mins = 
+SUM('fact_flights'[LateAircraftDelayMins])
+
+
+// --------------------------------------------------------------------
+// 4. TIME INTELLIGENCE DAX MEASURES
+// --------------------------------------------------------------------
+
+OTP % Prior Month = 
+CALCULATE(
+    [On-Time Performance Rate (OTP %)],
+    DATEADD('dim_dates'[FullDate], -1, MONTH)
+)
+
+MoM OTP % Growth = 
+IF(
+    ISBLANK([OTP % Prior Month]),
+    BLANK(),
+    [On-Time Performance Rate (OTP %)] - [OTP % Prior Month]
+)
+
+YTD Total Flights = 
+TOTALYTD([Total Flights], 'dim_dates'[FullDate])
+
+YTD Financial Loss USD = 
+TOTALYTD([Total Financial Loss USD], 'dim_dates'[FullDate])
+
+
+// --------------------------------------------------------------------
+// 5. RANKING & TOP N DAX MEASURES
+// --------------------------------------------------------------------
+
+Airline OTP Rank = 
+RANKX(
+    ALL('dim_airlines'[AirlineName]),
+    [On-Time Performance Rate (OTP %)],
+    ,
+    DESC,
+    Dense
+)
+
+Worst Delay Route Rank = 
+RANKX(
+    ALL('dim_airports'[AirportCode]),
+    [Average Arrival Delay Mins],
+    ,
+    DESC
+)
+
+
+// --------------------------------------------------------------------
+// 6. DYNAMIC KPI CONDITIONAL FORMATTING COLORS
+// --------------------------------------------------------------------
+
+OTP Color Status = 
+SWITCH(
+    TRUE(),
+    [On-Time Performance Rate (OTP %)] >= 0.80, "#10B981", -- Green (Target Met)
+    [On-Time Performance Rate (OTP %)] >= 0.70, "#F59E0B", -- Amber (Warning)
+    "#EF4444" -- Red (Critical Action Required)
+)
